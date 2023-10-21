@@ -1,0 +1,14 @@
+[
+    {
+      "name": "accueil",
+      "title": "Accueil",
+      "cssFile": "accueil.css",
+      "jsFile": ""
+    },
+    {
+      "name": "categories",
+      "title": "Catégories",
+      "cssFile": null,
+      "jsFile": null
+    }
+  ]

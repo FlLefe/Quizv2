@@ -1,0 +1,37 @@
+[
+    {
+      "nom": "Géographie",
+      "value": "geographie",
+      "description": "Testez vos connaissances en géographie du monde."
+    },
+    {
+      "nom": "Histoire",
+      "value": "histoire",
+      "description": "Découvrez l'histoire du monde à travers des questions passionnantes."
+    },
+    {
+      "nom": "Science",
+      "value": "science",
+      "description": "Explorez le monde de la science, de la physique à la biologie."
+    },
+    {
+      "nom": "Culture générale",
+      "value": "cultureg",
+      "description": "Mettez à l'épreuve vos connaissances variées sur de nombreux sujets."
+    },
+    {
+      "nom": "Cinéma",
+      "value": "cinema",
+      "description": "Testez vos connaissances sur le cinéma, les films et les acteurs."
+    },
+    {
+      "nom": "Musique",
+      "value": "musique",
+      "description": "Découvrez des questions sur la musique, les artistes et les genres musicaux."
+    },
+    {
+      "nom": "Dev web",
+      "value": "devweb",
+      "description": "Découvrez des questions sur le developpement web, révisez, progressez."
+    }
+  ]

@@ -1,0 +1,10 @@
+<%- include('partials/header.ejs') %>
+
+<form action="">
+    <% for (const categorie of locals.categories) {%>
+        <input type="submit" value="<%= categorie.nom %>" name="<%= categorie.value %>">
+    <%}%>
+    
+</form>
+
+<%- include("partials/footer.ejs") %>

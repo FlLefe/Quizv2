@@ -1,0 +1,5 @@
+<nav>
+    <% for (let file of locals.dataFile) {%>
+        <li><a href="/<%= file.name %>"><%= file.title %></a></li>
+    <%} %>
+</nav>
