@@ -9,12 +9,16 @@ app.set("view engine", "ejs");
 const dataFiles = require("./dataFiles.json");
 const categories = require("./categories.json");
 
-
 app.locals.dataFile = dataFiles;
 app.locals.categories = categories;
 
-const routeAccueil = require("./routes/accueil");
+app.use(express.urlencoded({extended: true}))
+
+const routeAccueil = require("./routes/accueilRoutes");
 app.use('/', routeAccueil);
+
+const routeCategories = require("./routes/categoriesRoutes");
+app.use('/', routeCategories);
 
 //Journalisation : 
 app.use((req, res, next) => {
