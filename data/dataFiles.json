@@ -10,5 +10,11 @@
       "title": "Themes",
       "cssFile": null,
       "jsFile": null
+    },
+    {
+      "name": "quiz",
+      "title": "",
+      "cssFile": null,
+      "jsFile": "getQuestion.js"
     }
   ]

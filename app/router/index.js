@@ -6,6 +6,8 @@ router.get('/', homeController.home);
 
 router.get('/themes', themesController.themes);
 
-router.get('/themes/:theme', themesController.theme);
+router.get('/quiz/:theme', themesController.theme);
+
+router.get('/quiz/:theme/getQuestion', themesController.getQuestion);
 
 module.exports = router;

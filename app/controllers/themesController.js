@@ -20,16 +20,18 @@ const themesController = {
     },
 
     async theme(req,res) {
+        const selectedTheme = req.params.theme;
+        res.redirect(`/quiz/${selectedTheme}/getQuestion`);
+    },
+
+    async getQuestion(req,res) {
         const theme = req.params.theme;
+
         try {
-            const query = `SELECT * FROM questions WHERE theme = '${theme}';`;
+            const query = `SELECT * FROM questions WHERE theme = '${theme}' LIMIT 1;`;
             const result = await client.query(query);
 
-
-            res.render('theme', {
-                dataFiles,
-                themeQuestions: result.rows
-            })
+            res.json(result.rows[0]);
         } catch {
             console.trace("Erreur lors de la récupération des questions du theme :", error);
             res.status(500).send("Erreur lors de la récupération du theme.");
@@ -38,5 +40,3 @@ const themesController = {
 }
 
 module.exports = themesController;
-
-//Test
