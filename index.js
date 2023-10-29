@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const app = express();
 
@@ -14,10 +15,10 @@ app.locals.categories = categories;
 
 app.use(express.urlencoded({extended: true}))
 
-const routeAccueil = require("./routes/accueilRoutes");
+const routeAccueil = require("./app/routes/accueilRoutes");
 app.use('/', routeAccueil);
 
-const routeCategories = require("./routes/categoriesRoutes");
+const routeCategories = require("./app/routes/categoriesRoutes");
 app.use('/', routeCategories);
 
 //Journalisation : 
