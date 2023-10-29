@@ -1,6 +1,6 @@
 const express = require('express');
 const routerAccueil = express.Router();
-const accueilController = require("../controllers/accueilController");
+const accueilController = require("../controllers/homeController");
 
 routerAccueil.get("/", (req,res) => {
     res.redirect("accueil");

@@ -29,9 +29,6 @@ header {
     text-shadow: #FC0 1px 0 10px;
 }
 
-.divTop h1:hover{
-    text-shadow: #FC0 5px 5px 10px;
-}
 nav {
     margin: 1rem;
     display: flex;
