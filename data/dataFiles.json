@@ -1,13 +1,13 @@
 [
     {
-      "name": "accueil",
+      "name": "",
       "title": "Accueil",
       "cssFile": "accueil.css",
       "jsFile": ""
     },
     {
-      "name": "categories",
-      "title": "Catégories",
+      "name": "themes",
+      "title": "Themes",
       "cssFile": null,
       "jsFile": null
     }

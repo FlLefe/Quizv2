@@ -1,4 +1,3 @@
-const client = require("../database");
 const dataFiles = require("../../data/dataFiles.json");
 
 const homeController = {

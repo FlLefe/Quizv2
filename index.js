@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require("express");
 const app = express();
+const dataFiles = require("./data/dataFiles.json");
 
 app.use(express.static("public"));
 
@@ -14,7 +15,7 @@ const router = require('./app/router');
 app.use(router);
 
 app.use((req, res) => {
-  res.status(404).render("notFound");
+  res.status(404).render("notFound",{dataFiles});
 })
 
 app.set('PORT', process.env.PORT || 3000);
