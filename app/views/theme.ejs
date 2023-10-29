@@ -1,8 +1,21 @@
 <%- include('partials/header.ejs') %>
 
 <ul>
-    <% for (const categorie of locals.categories) {%>
-        <li><a href="/categories/<%= categorie.value %>"><%= categorie.nom %></a></li>
+    <% let group = 1; %>
+    <% for (const themeQuestion of locals.themeQuestions) {%>
+        
+        <form action="">
+            <p><%= themeQuestion.question %></p>
+            <ul>
+                <li><label><input type="radio" name="<%= group %>"><%= themeQuestion.options[0]%></label></li>
+                <li><label><input type="radio" name="<%= group %>"><%= themeQuestion.options[1]%></label></li>
+                <li><label><input type="radio" name="<%= group %>"><%= themeQuestion.options[2]%></label></li>
+                <li><label><input type="radio" name="<%= group %>"><%= themeQuestion.options[3]%></label></li>
+            </ul>
+
+            <p><%= themeQuestion.answer %></p>
+        </form>
+        <% group++; %>
     <%}%>
     
 </ul>
