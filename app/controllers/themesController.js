@@ -15,10 +15,11 @@ const themesController = {
     async generateQuestions(req,res){
         const theme = req.params.theme;
         const body = req.body;        
-        console.log('req.session >>' + req.session);
+
         
         const questionsArray = await dataMapper.selectQuestions(theme, body);
         req.session.questionsArray = questionsArray;
+        req.session.answers = [];
 
         res.redirect("/quiz/1");
     }    

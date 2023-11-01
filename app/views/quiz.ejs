@@ -1,7 +1,7 @@
 <%- include('partials/header.ejs') %>
 
 <form action="/quiz/<%= index %>" method="post">
-    <p id="question"><%= question %></p>
+    <p id="question"> Q<%= index-1 %> : <%= question %></p>
     <ul>
         <li><label><input type="radio" name="choice" value="<%= options[0] %>">
             <%= options[0] %></label></li>

@@ -1,0 +1,21 @@
+<%- include('partials/header.ejs') %>
+
+<p>Résultat : </p>
+
+<ul>
+    <% for (const question of questions) {%>
+        <% let i = 0;%>
+        <li><%= question.question%> : 
+            <% question.options.forEach(option => { %>
+                <p><%= option %></p>      
+            <%});%>
+            <%= question.answer %>
+            <p>Your answer : <%= answers[i] %></p>
+            <% i++; %>
+        </li>
+    <%}%>
+        
+
+</ul>
+
+<%- include("partials/footer.ejs") %>
