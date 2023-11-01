@@ -11,6 +11,8 @@ router.get('/themes', catchErrors(themesController.showThemes));
 router.get('/themes/:theme', themesController.theme);
 router.post('/themes/:theme', themesController.generateQuestions);
 
-router.get('/quiz', quizController.sendQuestion);
+router.get('/quiz/:questionNb', quizController.sendQuestion);
+router.post('/quiz/:questionNb', quizController.postAnswer);
+
 
 module.exports = router;

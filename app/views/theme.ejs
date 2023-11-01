@@ -1,6 +1,6 @@
 <%- include('partials/header.ejs') %>
 
-<form action="/themes/theme" method="post">
+<form action="/themes/<%= selectedTheme %>" method="post">
 
     <label for="nbQuestions">Choisissez le nombre de question : </label>
     <select name="nbQuestions">

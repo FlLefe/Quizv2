@@ -1,19 +1,19 @@
 <%- include('partials/header.ejs') %>
 
-<form action="">
-    <p id="question"><%= questionsArray[index].question %></p>
+<form action="/quiz/<%= index %>" method="post">
+    <p id="question"><%= question %></p>
     <ul>
-        <li><label><input type="radio" name="choice" value="<%= questionsArray[index]options[0] %>">
-            <%= questionsArray[index]options[0] %></label></li>
-        <li><label><input type="radio" name="choice" value="<%= questionsArray[index]options[1] %>">
-            <%= questionsArray[index]options[1] %></label></li>
-        <li><label><input type="radio" name="choice" value="<%= questionsArray[index]options[2] %>">
-            <%= questionsArray[index]options[2] %></label></li>
-        <li><label><input type="radio" name="choice" value="<%= questionsArray[index]options[3] %>">
-            <%= questionsArray[index]options[3] %></label></li>
+        <li><label><input type="radio" name="choice" value="<%= options[0] %>">
+            <%= options[0] %></label></li>
+        <li><label><input type="radio" name="choice" value="<%= options[1] %>">
+            <%= options[1] %></label></li>
+        <li><label><input type="radio" name="choice" value="<%= options[2] %>">
+            <%= options[2] %></label></li>
+        <li><label><input type="radio" name="choice" value="<%= options[3] %>">
+            <%= options[3] %></label></li>
     </ul>
     <input type="submit" value="Valider">
-    <p id="answer"><%= questionsArray[index]answer %></p>
+    <p id="answer"><%= answer %></p>
 </form>    
 
 <%- include("partials/footer.ejs") %>
