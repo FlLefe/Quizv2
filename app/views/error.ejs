@@ -1,0 +1,13 @@
+<%- include('partials/header.ejs') %>
+
+<% if (locals.error) { %>
+    <p><%= error %></p>
+<% } %>
+
+<% if (locals.stack) { %>
+    <pre>
+        <%= stack %>
+    </pre>
+<% } %>
+
+<%- include("partials/footer.ejs") %>

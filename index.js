@@ -1,22 +1,24 @@
 require('dotenv').config();
 const express = require("express");
 const app = express();
-const dataFiles = require("./data/dataFiles.json");
 
 app.use(express.static("public"));
 
 app.set("views", "./app/views");
 app.set("view engine", "ejs");
 
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }));
+
+const { notFound, handleError } = require('./middlewares/errorHandlers');
 
 const router = require('./app/router');
 
+app.locals.dataFiles = require("./data/dataFiles.json");
+
 app.use(router);
 
-app.use((req, res) => {
-  res.status(404).render("notFound",{dataFiles});
-})
+app.use(notFound);
+app.use(handleError);
 
 app.set('PORT', process.env.PORT || 3000);
 app.set('URL', process.env.BASE_URL || 'http://localhost');

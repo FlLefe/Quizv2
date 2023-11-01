@@ -1,42 +1,24 @@
-const client = require("../database");
-const dataFiles = require("../../data/dataFiles.json");
-
-
+const dataMapper = require("../database/dataMapper");
 
 const themesController = {
-    async themes(req,res){
-        try{
-            const query = `SELECT DISTINCT theme FROM questions;`;
-            const result = await client.query(query);
-
-            res.render('themes', {
-                dataFiles,
-                themes: result.rows
-            })
-        } catch {
-            console.trace("Erreur lors de la récupération des themes :", error);
-            res.status(500).send("Erreur lors de la récupération des themes.");
-        }
+    async showThemes(req,res){
+        const themes = await dataMapper.getAllThemes();
+        res.render('themes', { themes });
     },
 
-    async theme(req,res) {
+    theme (req,res) {
         const selectedTheme = req.params.theme;
-        res.redirect(`/quiz/${selectedTheme}/getQuestion`);
+        res.render('theme', { selectedTheme });
     },
 
-    async getQuestion(req,res) {
+    async generateQuestions(req,res){
         const theme = req.params.theme;
-
-        try {
-            const query = `SELECT * FROM questions WHERE theme = '${theme}' LIMIT 1;`;
-            const result = await client.query(query);
-
-            res.json(result.rows[0]);
-        } catch {
-            console.trace("Erreur lors de la récupération des questions du theme :", error);
-            res.status(500).send("Erreur lors de la récupération du theme.");
-        }
-    }
+        const body = req.body;
+        
+        const questionsArray = await dataMapper.selectQuestions(theme, body);
+        
+        res.render("quiz", {questionsArray, index:0});
+    }    
 }
 
 module.exports = themesController;

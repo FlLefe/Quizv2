@@ -3,7 +3,7 @@
       "name": "",
       "title": "Accueil",
       "cssFile": "accueil.css",
-      "jsFile": ""
+      "jsFile": null
     },
     {
       "name": "themes",
@@ -15,6 +15,6 @@
       "name": "quiz",
       "title": "",
       "cssFile": null,
-      "jsFile": "getQuestion.js"
+      "jsFile": null
     }
   ]
