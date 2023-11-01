@@ -1,13 +1,14 @@
 const router = require('express').Router();
-const homeController = require('../controllers/homeController');
+const mainController = require('../controllers/mainController');
 const themesController = require ('../controllers/themesController');
+const { catchErrors } = require('../../middlewares/errorHandlers');
 
-router.get('/', homeController.home);
+router.get('/', mainController.home);
 
-router.get('/themes', themesController.themes);
+router.get('/themes', catchErrors(themesController.themes));
 
-router.get('/quiz/:theme', themesController.theme);
+router.get('/quiz/:theme', catchErrors(themesController.theme));
 
-router.get('/quiz/:theme/getQuestion', themesController.getQuestion);
+router.get('/quiz/:theme/getQuestion', catchErrors(themesController.getQuestion));
 
 module.exports = router;
