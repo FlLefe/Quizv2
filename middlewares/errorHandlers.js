@@ -1,7 +1,5 @@
-/**
- *
+/*
  * @param {Function} controllerMethod une méthode de contrôleur que l'on passe en argument à cettte fonction
- *
  */
 function catchErrors(controllerMethod) {
     // Cette fonction anonyme va être exécuté automatiquement, elle va appeler la méthode du contrôleur
@@ -22,7 +20,6 @@ function notFound(req, res, next) {
 // Un middleware d'erreur comprend 4 params : err, req, res, next
 function handleError(err, req, res, next) {
     const statusCode = err.status || 500;
-
     // Version de développement
     res.status(statusCode).render('error', { error: err.message, stack: err.stack });
 }

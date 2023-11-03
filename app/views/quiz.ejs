@@ -1,19 +1,20 @@
 <%- include('partials/header.ejs') %>
 
-<form action="/quiz/<%= index %>" method="post">
-    <p id="question"> Q<%= index-1 %> : <%= question %></p>
-    <ul>
-        <li><label><input type="radio" name="choice" value="<%= options[0] %>">
-            <%= options[0] %></label></li>
-        <li><label><input type="radio" name="choice" value="<%= options[1] %>">
-            <%= options[1] %></label></li>
-        <li><label><input type="radio" name="choice" value="<%= options[2] %>">
-            <%= options[2] %></label></li>
-        <li><label><input type="radio" name="choice" value="<%= options[3] %>">
-            <%= options[3] %></label></li>
-    </ul>
-    <input type="submit" value="Valider">
-    <p id="answer"><%= answer %></p>
-</form>    
+<div class="container_main">
+    <form class="quiz_form" action="/quiz/<%= index %>" method="post">
+        <p class="quiz_form_p" id="question"> Q<%= index-1 %> : <%= question %></p>
+        <ul>
+            <li><label><input type="radio" name="choice" value="<%= options[0] %>" required>
+                <%= options[0] %></label></li>
+            <li><label><input type="radio" name="choice" value="<%= options[1] %>">
+                <%= options[1] %></label></li>
+            <li><label><input type="radio" name="choice" value="<%= options[2] %>">
+                <%= options[2] %></label></li>
+            <li><label><input type="radio" name="choice" value="<%= options[3] %>">
+                <%= options[3] %></label></li>
+        </ul>
+        <input class="quiz_submit" type="submit" value="Valider">
+    </form>    
+</div>
 
 <%- include("partials/footer.ejs") %>

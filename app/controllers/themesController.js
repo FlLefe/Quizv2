@@ -3,22 +3,17 @@ const dataMapper = require("../database/dataMapper");
 const themesController = {
 
     async showThemes(req,res){
-        const themes = await dataMapper.getAllThemes();
-        res.render('themes', { themes });
+        res.render('themes', { themes:await dataMapper.getAllThemes() });
     },
 
     theme (req,res) {
-        const selectedTheme = req.params.theme;
-        res.render('theme', { selectedTheme });
+        res.render('theme', { selectedTheme:req.params.theme });
     },
 
     async generateQuestions(req,res){
         const theme = req.params.theme;
         const body = req.body;        
-
-        
-        const questionsArray = await dataMapper.selectQuestions(theme, body);
-        req.session.questionsArray = questionsArray;
+        req.session.questionsArray = await dataMapper.selectQuestions(theme, body);
         req.session.answers = [];
 
         res.redirect("/quiz/1");

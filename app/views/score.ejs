@@ -1,21 +1,27 @@
 <%- include('partials/header.ejs') %>
 
-<p>Résultat : </p>
 
-<ul>
-    <% for (const question of questions) {%>
+<div class="container_main score">
+    <h3 class="score_h3">Résultat :</h3>
+    <ul class="score_ul">
         <% let i = 0;%>
-        <li><%= question.question%> : 
-            <% question.options.forEach(option => { %>
-                <p><%= option %></p>      
-            <%});%>
-            <%= question.answer %>
-            <p>Your answer : <%= answers[i] %></p>
-            <% i++; %>
-        </li>
-    <%}%>
-        
-
-</ul>
-
+        <% let score = 0 %>
+        <% for (const question of questions) {%>
+            
+            <li class="score_li"><span class="bold">Q<%= i+1%> :</span> <%= question.question%>
+                <p>Votre réponse : <span
+                    <% if (answers[i] === question.answer) {%>
+                        style="color:green;"
+                        <% score++%>
+                    <%} else {%>
+                        style="color:red;"
+                    <%}%>
+                    ><%= answers[i] %> </span> - 
+                    La bonne réponse était : <em><%= question.answer %></em></p> 
+                <% i++; %>
+            </li>
+        <%}%>
+        <p class="score_p">Votre score : <%= score%> / <%= questions.length%> </p>
+    </ul>
+</div>
 <%- include("partials/footer.ejs") %>

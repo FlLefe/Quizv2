@@ -1,10 +1,12 @@
 <%- include('partials/header.ejs') %>
 
-<ul>
-    <% for (const theme of locals.themes) {%>
-        <li><a href="/themes/<%= theme.theme %>"><%= theme.theme %></a></li>
-    <%}%>
-    
-</ul>
+<div class="container_main">
+    <ul class="themes_ul">
+        <% for (const theme of locals.themes) {%>
+            <li class="themes_li"><a href="/themes/<%= theme.theme %>"><%= theme.theme %></a></li>
+        <%}%>
+        
+    </ul>
+</div>
 
 <%- include("partials/footer.ejs") %>

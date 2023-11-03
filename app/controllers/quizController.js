@@ -3,6 +3,7 @@ const quizController = {
     getQuestion (req,res) {
         let index = req.params.questionNb;
         const questions = req.session.questionsArray;
+        req.session.score = 0;
         
         if (index <= questions.length){
             res.render("quiz", {
@@ -19,16 +20,15 @@ const quizController = {
     postAnswer (req,res) {
         const index = req.params.questionNb;
         const answer = req.body.choice;
-
+                
         req.session.answers.push(answer);
         res.redirect(`/quiz/${index}`);
-        
     },
 
     displayResult (req,res) {
-        const answers = req.session.answers;
-        const questions = req.session.questionsArray;
-        res.render('score', {answers, questions});
+        res.render('score', {
+            answers:req.session.answers,
+            questions:req.session.questionsArray});
     }
 }
 

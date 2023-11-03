@@ -1,18 +1,18 @@
 <%- include('partials/header.ejs') %>
 
-<form action="/themes/<%= selectedTheme %>" method="post">
+<div class="container_main">
+    <form class="theme_form" action="/themes/<%= selectedTheme %>" method="post">
 
-    <label for="nbQuestions">Choisissez le nombre de question : </label>
-    <select name="nbQuestions">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-    </select>
-
-    <button type="submit">Start ! </button>
-    
-</form>
+        <label for="nbQuestions">Choisissez le nombre de question : 
+        <select name="nbQuestions">
+            <option value="1">1</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+        </select>
+        </label>
+        <button class="btn_start" type="submit">Start ! </button>
+        
+    </form>
+</div>
 
 <%- include("partials/footer.ejs") %>
