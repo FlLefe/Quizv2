@@ -1,8 +1,11 @@
 <%- include('partials/header.ejs') %>
 
 <div class="container_main">
-    <form class="quiz_form" action="/quiz/<%= index %>" method="post">
-        <p class="quiz_form_p" id="question"> Q<%= index-1 %> : <%= question %></p>
+    <form class="quiz_form" action="/quiz/<%= index+1 %>" method="post">
+        <div class="quiz_progress_container">
+            <div class="quiz_progress_element" style="width: <%= (100/questionsNb*(index)) %>%;"></div>
+        </div> 
+        <p class="quiz_form_p" id="question"> Q<%= index %> : <%= question %></p>
         <ul>
             <li><label><input type="radio" name="choice" value="<%= options[0] %>" required>
                 <%= options[0] %></label></li>
@@ -14,7 +17,8 @@
                 <%= options[3] %></label></li>
         </ul>
         <input class="quiz_submit" type="submit" value="Valider">
-    </form>    
+    </form>
+      
 </div>
 
 <%- include("partials/footer.ejs") %>

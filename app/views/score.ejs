@@ -8,16 +8,16 @@
         <% let score = 0 %>
         <% for (const question of questions) {%>
             
-            <li class="score_li"><span class="bold">Q<%= i+1%> :</span> <%= question.question%>
+            <li class="score_li"><span class="bold">Q<%= i+1%> :</span> <%= question.question_text%>
                 <p>Votre réponse : <span
-                    <% if (answers[i] === question.answer) {%>
+                    <% if (answers[i] === question.correct_answer) {%>
                         style="color:green;"
                         <% score++%>
                     <%} else {%>
                         style="color:red;"
                     <%}%>
                     ><%= answers[i] %> </span> - 
-                    La bonne réponse était : <em><%= question.answer %></em></p> 
+                    La bonne réponse était : <em><%= question.correct_answer %></em></p> 
                 <% i++; %>
             </li>
         <%}%>

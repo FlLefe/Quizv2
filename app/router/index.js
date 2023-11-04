@@ -9,8 +9,8 @@ router.get('/', mainController.home);
 
 router.get('/themes', catchErrors(themesController.showThemes));
 
-router.get('/themes/:theme', themesController.theme);
-router.post('/themes/:theme', themesController.generateQuestions);
+router.get('/themes/:idTheme', themesController.theme);
+router.post('/themes/:idTheme', themesController.generateQuestions);
 
 router.get('/quiz/:questionNb', quizController.getQuestion);
 router.post('/quiz/:questionNb', quizController.postAnswer);

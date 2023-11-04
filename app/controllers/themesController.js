@@ -7,11 +7,11 @@ const themesController = {
     },
 
     theme (req,res) {
-        res.render('theme', { selectedTheme:req.params.theme });
+        res.render('theme', { selectedTheme:parseInt(req.params.idTheme) });
     },
 
     async generateQuestions(req,res){
-        const theme = req.params.theme;
+        const theme = parseInt(req.params.idTheme);
         const body = req.body;        
         req.session.questionsArray = await dataMapper.selectQuestions(theme, body);
         req.session.answers = [];
