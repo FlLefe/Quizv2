@@ -1,0 +1,11 @@
+<%- include('partials/header.ejs') %>
+
+<div>
+    <%for (const question of questions) {%>
+        <ul>
+            <li>('<%= question.question %>','<%= question.answer%>',<%= question.theme%>),</li>
+        </ul>
+    <%}%>    
+</div>
+
+<%- include("partials/footer.ejs") %>

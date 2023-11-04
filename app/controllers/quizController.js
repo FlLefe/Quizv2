@@ -8,7 +8,7 @@ const quizController = {
         if (index <= questions.length){
             res.render("quiz", {
                 question: questions[index-1].question,
-                options: questions[index-1].options,
+                options: questions[index-1].randomized_options,
                 answer: questions[index-1].answer,
                 index: (parseInt(index)+1)
             });
