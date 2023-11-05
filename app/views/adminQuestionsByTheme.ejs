@@ -2,7 +2,7 @@
 
 <div class="container_main">
     <ul class="admin_questions_ul"> 
-    <form method="post">
+    <form action="/admin/questions" method="post">
             <select name="theme">
                 <option disabled selected>Themes</option>
                 <% for (theme of themes) {%>
@@ -28,7 +28,7 @@
                 <% for (question of questions) {%>
                 <tr>
                 <td><%= question.id %></td>
-                <td><%= question.theme %></td>
+                <td><%= nameTheme.name %></td>
                 <td><%= question.question_text %></td>
                 <td><%= question.correct_answer %></td>
                 <td><input type="checkbox" name="idQuestion" value="<%= question.id %>"></td>

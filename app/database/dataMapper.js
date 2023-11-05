@@ -57,7 +57,35 @@ const dataMapper = {
             client.query(query);
         };
         return;
+    },
+
+    async getAllQuestionsAndThemes (){
+        const query = `SELECT  q.id, q.question_text, q.correct_answer, o.answer_1, o.answer_2, o.answer_3, o.answer_4, t.name AS theme
+        FROM question AS q
+        JOIN option AS o ON q.option_id = o.id
+        JOIN theme AS t ON q.theme_id = t.id
+        ORDER BY id ASC;`;
+        const result = client.query(query);
+        return (await result).rows;
+    },
+    
+    async getQuestionsForOneTheme (id) {
+        const query = {
+            text:`SELECT * FROM question
+            WHERE theme_id = $1;`,
+            values:[id]
+        };
+        const result = await client.query(query);
+        return result.rows;
+    },
+
+    async getNameTheme (idSearched) {
+        const query = `SELECT name FROM theme
+        WHERE id = ${idSearched};`;
+        const result = await client.query(query);          
+        return result.rows[0];
     }
+    
 }
     
 module.exports = dataMapper;

@@ -23,8 +23,10 @@ router.get('/admin/themes', adminController.getThemes);
 router.post('/admin/themes/add', adminController.addNewTheme);
 router.post('/admin/themes/delete', adminController.deleteThemes);
 
-router.get('/admin/questions', adminController.getQuestions);
+router.get('/admin/questions', adminController.getAllQuestionsAndThemes);
+router.post('/admin/questions', adminController.adminRedirect);
 
+router.get('/admin/questions/:theme', adminController.getAllQuestionsByTheme);
 
 
 

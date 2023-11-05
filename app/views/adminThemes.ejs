@@ -2,7 +2,7 @@
 
 <div class="container_main">
     <% if (locals.themes?.length) {%> 
-        <form action="/admin/themes/delete" method="post">
+        <form class="admin_form_theme" action="/admin/themes/delete" method="post">
             <table class="table_theme">
                 <thead>
                     <tr>
@@ -18,14 +18,14 @@
                     <% for (theme of themes) {%>
                     <tr>
                     <td><%= theme.id %></td>
-                    <td><a href="/admin/themes/<%= theme.id %>"><%= theme.name %></a></td>
+                    <td><a href="/admin/questions/<%= theme.id %>"><%= theme.name %></a></td>
                     <td><%= theme.count %></td>
-                    <td><input type="checkbox" name="id" value="<%= theme.id %>"></td>
+                    <td><input type="checkbox" name="idTheme" value="<%= theme.id %>"></td>
                     </tr>
                     <%}%>
                 </tbody>
             </table>
-            <input type="submit" value="Supprimer la sélection">
+            <input class="submit" type="submit" value="Supprimer la sélection">
         </form>
     <%}%> 
     <form action="/admin/themes/add" method="post">
@@ -34,17 +34,7 @@
             <input type="text" name="newThemeName" maxlength="150">
         </label>
         <input type="submit" value="Ajouter">
-    </form>    
-                
-               
-       
-    <% if (locals.questions?.length) {%>
-        <ul>
-            <% for (question of questions) {%>
-                <li><%= question.id %> - <%= question.question_text %> <%= question.correct_answer %></li>
-            <%}%>    
-        </ul>
-    <%}%>    
+    </form>      
 </div>
 
 <%- include("partials/footer.ejs") %>
