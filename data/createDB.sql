@@ -1,3 +1,5 @@
+-- psql -U quiz -d quiz -f /data/createDB.sql
+
 -- Supprimer les tables s'il y a lieu
 DROP TABLE IF EXISTS question;
 DROP TABLE IF EXISTS option;

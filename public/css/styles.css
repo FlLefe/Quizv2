@@ -246,3 +246,11 @@ footer {
 .admin_questions_ul {
     text-align: left;
 }
+
+
+/* ! ----- Admin Theme----- */
+
+.table_theme, .table_theme tbody, tr, td {
+    border: 1px solid black;
+    padding: 5px;
+}

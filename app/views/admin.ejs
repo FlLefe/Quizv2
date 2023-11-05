@@ -1,13 +1,11 @@
 <%- include('partials/header.ejs') %>
 
 <div class="container_main">
-    <ul class="admin_questions_ul">
-    <%for (const question of questions) {%>
-       
-            <li>Q<%= question.id %> : <%= question.question_text %> </li>
-        
-    <%}%>   
-    </ul> 
+    <ul>
+        <li><a href="/admin/themes">Gestion des themes</a></li>
+        <li><a href="/admin/questions">Gestion des questions</a></li>
+        <li><a href="/admin/users">Gestion des utilisateurs</a></li>
+    </ul>
 </div>
 
 <%- include("partials/footer.ejs") %>

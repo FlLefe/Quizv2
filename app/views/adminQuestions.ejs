@@ -1,0 +1,29 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container_main">
+    <ul class="admin_questions_ul">
+    <% if (locals.themes?.length) {%>
+        <ul>
+            <label for="theme">Theme : 
+                <select name="theme">
+                    <option value="1">1</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                </select>
+                </label>
+            <% for (theme of themes) {%>
+                <li><a href="/admin/theme/<%= theme.id %>"><%= theme.id %> - <%= theme.name %></a></li>
+            <%}%>     
+        </ul>
+    <%}%> 
+    <% if (locals.questions?.length) {%>
+        <ul>
+            <% for (question of questions) {%>
+                <li><%= question.id %> - <%= question.question_text %> <%= question.correct_answer %></li>
+            <%}%>    
+        </ul>
+    <%}%>  
+    </ul> 
+</div>
+
+<%- include("partials/footer.ejs") %>

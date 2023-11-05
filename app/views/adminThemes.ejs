@@ -1,0 +1,50 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container_main">
+    <% if (locals.themes?.length) {%> 
+        <form action="/admin/themes/delete" method="post">
+            <table class="table_theme">
+                <thead>
+                    <tr>
+                    <th colspan="4">Themes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Id</td>
+                        <td>Nom</td>
+                        <td>Nb de questions</td>
+                    </tr>
+                    <% for (theme of themes) {%>
+                    <tr>
+                    <td><%= theme.id %></td>
+                    <td><a href="/admin/themes/<%= theme.id %>"><%= theme.name %></a></td>
+                    <td><%= theme.count %></td>
+                    <td><input type="checkbox" name="id" value="<%= theme.id %>"></td>
+                    </tr>
+                    <%}%>
+                </tbody>
+            </table>
+            <input type="submit" value="Supprimer la sélection">
+        </form>
+    <%}%> 
+    <form action="/admin/themes/add" method="post">
+        <p>Ajouter un theme :</p>
+        <label for="newTheme"> Nom : 
+            <input type="text" name="newThemeName" maxlength="150">
+        </label>
+        <input type="submit" value="Ajouter">
+    </form>    
+                
+               
+       
+    <% if (locals.questions?.length) {%>
+        <ul>
+            <% for (question of questions) {%>
+                <li><%= question.id %> - <%= question.question_text %> <%= question.correct_answer %></li>
+            <%}%>    
+        </ul>
+    <%}%>    
+</div>
+
+<%- include("partials/footer.ejs") %>
