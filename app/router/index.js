@@ -19,15 +19,17 @@ router.get('/score', quizController.displayResult);
 
 router.get('/admin', adminController.mainAdmin);
 
+router.get('/admin/database/save', adminController.saveDatabase);
+
 router.get('/admin/themes', adminController.getThemes);
 router.post('/admin/themes/add', adminController.addNewTheme);
 router.post('/admin/themes/delete', adminController.deleteThemes);
 
 router.get('/admin/questions', adminController.getAllQuestionsAndThemes);
 router.post('/admin/questions', adminController.adminRedirect);
+router.post('/admin/questions/delete', adminController.deleteQuestion);
 
 router.get('/admin/questions/:theme', adminController.getAllQuestionsByTheme);
-
 
 
 module.exports = router;

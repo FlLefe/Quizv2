@@ -39,6 +39,12 @@ const adminController = {
         const themes = await dataMapper.getAllThemes();
         const nameTheme = await dataMapper.getNameTheme(idTheme);
         res.render('adminQuestionsByTheme', { questions:questionsByTheme, themes, nameTheme});   
+    },
+
+    async deleteQuestion (req, res) {
+        const idToDelete = req.body.idQuestion;
+        await dataMapper.deleteQuestion(idToDelete);
+        res.redirect('/admin/questions');
     }
 }
 

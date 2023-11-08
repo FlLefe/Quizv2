@@ -54,7 +54,7 @@ const dataMapper = {
                 WHERE id = $1;`,
                 values:[parseInt(id)]
             }
-            client.query(query);
+            await client.query(query);
         };
         return;
     },
@@ -84,6 +84,18 @@ const dataMapper = {
         WHERE id = ${idSearched};`;
         const result = await client.query(query);          
         return result.rows[0];
+    },
+
+    async deleteQuestion (idArray) {
+        for (id of idArray){
+            const query = {
+                text:`DELETE FROM question
+                WHERE id = $1;`,
+                values:[parseInt(id)]
+            };
+            await client.query(query);
+        };
+        return;
     }
     
 }

@@ -1,7 +1,6 @@
 <%- include('partials/header.ejs') %>
 
 <div class="container_main">
-    <ul class="admin_questions_ul"> 
     <form action="/admin/questions" method="post">
             <select name="theme">
                 <option disabled selected>Themes</option>
@@ -12,32 +11,34 @@
             <button type="submit">Valider</button>
     </form>    
     <% if (locals.questions?.length) {%>
-        <table class="table_questions">
-            <thead>
-                <tr>
-                <th colspan="8">Questions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Id</td>
-                    <td>Theme</td>
-                    <td>Question</td>
-                    <td>Réponse</td>
-                </tr>
-                <% for (question of questions) {%>
-                <tr>
-                <td><%= question.id %></td>
-                <td><%= nameTheme.name %></td>
-                <td><%= question.question_text %></td>
-                <td><%= question.correct_answer %></td>
-                <td><input type="checkbox" name="idQuestion" value="<%= question.id %>"></td>
-                </tr>
-                <%}%>
-            </tbody>
-        </table>
+        <form action="/admin/questions/delete" method="post">    
+            <table class="table_questions">
+                <thead>
+                    <tr>
+                    <th colspan="8">Questions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Id</td>
+                        <td>Theme</td>
+                        <td>Question</td>
+                        <td>Réponse</td>
+                        <td><button type="submit">Supp.</button></td>
+                    </tr>
+                    <% for (question of questions) {%>
+                    <tr>
+                    <td><%= question.id %></td>
+                    <td><%= nameTheme.name %></td>
+                    <td><%= question.question_text %></td>
+                    <td><%= question.correct_answer %></td>
+                    <td><input type="checkbox" name="idQuestion" value="<%= question.id %>"></td>
+                    </tr>
+                    <%}%>
+                </tbody>
+            </table>
+        </form>
     <%}%>  
-    </ul> 
 </div>
 
 <%- include("partials/footer.ejs") %>
